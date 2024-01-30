@@ -4,7 +4,6 @@ import com.dsm.fanflow.global.error.exception.ErrorCode
 import com.dsm.fanflow.global.error.exception.FanflowException
 import com.fasterxml.jackson.databind.ObjectMapper
 import java.io.IOException
-import java.nio.charset.StandardCharsets
 import javax.servlet.FilterChain
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
@@ -35,7 +34,8 @@ class ExceptionFilter (
             status = errorCode.status
             characterEncoding = "UTF-8"
             contentType = "application/json"
-            writer.write(errorCode.status)
+            writer.write(objectMapper.writeValueAsString(ErrorResponse(errorCode.status, errorCode.message)))
+            writer.flush()
         }
     }
 }
