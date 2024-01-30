@@ -1,12 +1,16 @@
 package com.dsm.fanflow.global.security.domain
 
 import javax.validation.constraints.NotBlank
+import lombok.Builder
+import lombok.Getter
 import org.springframework.data.annotation.Id
 import org.springframework.data.redis.core.RedisHash
+import org.springframework.data.redis.core.TimeToLive
 import org.springframework.data.redis.core.index.Indexed
 
-
-@RedisHash(value = "RefreshToken", timeToLive = 60 * 60 * 2)
+@Getter
+@Builder
+@RedisHash
 class RefreshToken (
     @Id
     val id: String,
@@ -14,7 +18,6 @@ class RefreshToken (
     @Indexed
     val token: String,
 
-    @Indexed
-    @field:NotBlank
+    @TimeToLive
     val ttl: Long
 )
