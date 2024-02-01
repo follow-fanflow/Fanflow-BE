@@ -4,6 +4,7 @@ import com.dsm.fanflow.global.security.jwt.JwtTokenProvider
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.http.HttpMethod
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.http.SessionCreationPolicy
@@ -31,7 +32,12 @@ class SecurityConfig(
 
             .and()
             .authorizeHttpRequests()
-            .antMatchers("/**").permitAll()
+
+
+            //.antMatchers("/**").permitAll()
+            .antMatchers(HttpMethod.POST, "/user/login").permitAll()
+            .antMatchers(HttpMethod.POST, "/user/signup").permitAll()
+            //.anyRequest().authenticated()
             .anyRequest().permitAll()
 
             .and().apply(FilterConfig(objectMapper, tokenProvider))
