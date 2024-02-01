@@ -26,9 +26,13 @@ class Log(
     val user: User
 ): BaseIdEntity() {
 
-    // 생성자에서 id를 받지 않도록 수정
-
     fun addLike() {
         likeCount += 1
+    }
+
+    fun modify(title: String, content: String, group: String) {
+        this.title = title
+        this.content = content
+        this.group = Group.valueOf(group)
     }
 }

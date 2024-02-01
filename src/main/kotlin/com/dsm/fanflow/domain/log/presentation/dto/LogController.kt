@@ -4,11 +4,13 @@ import com.dsm.fanflow.domain.log.presentation.dto.request.LogIdRequest
 import com.dsm.fanflow.domain.log.presentation.dto.request.LogRequest
 import com.dsm.fanflow.domain.log.presentation.dto.response.ReturnIdResponse
 import com.dsm.fanflow.domain.log.service.LogDeleteService
+import com.dsm.fanflow.domain.log.service.LogModifyService
 import com.dsm.fanflow.domain.log.service.LogService
 import java.util.UUID
 import javax.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.DeleteMapping
+import org.springframework.web.bind.annotation.PatchMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController
 class LogController(
     private val logService: LogService,
     private val deleteService: LogDeleteService,
+    private val modifyService: LogModifyService
 ) {
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -38,5 +41,10 @@ class LogController(
     @DeleteMapping("/{id}")
     fun deleteLog(@PathVariable @Valid id: Long) {
         deleteService.execute(id)
+    }
+
+    @PatchMapping("/{id}")
+    fun modifyLog(@PathVariable @Valid id: Long, @RequestBody @Valid request: LogRequest) {
+        modifyService.execute(id, request)
     }
 }
