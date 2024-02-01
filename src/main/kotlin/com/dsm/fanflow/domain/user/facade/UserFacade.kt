@@ -2,7 +2,9 @@ package com.dsm.fanflow.domain.user.facade
 
 import com.dsm.fanflow.domain.user.domain.User
 import com.dsm.fanflow.domain.user.domain.repository.UserRepository
+import com.dsm.fanflow.domain.user.exception.TokenUnauthorizedException
 import com.dsm.fanflow.domain.user.exception.UserNotFoundException
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Component
 
 @Component
@@ -14,9 +16,16 @@ class UserFacade(
         return userRepository.existsByAccountId(accountId)
     }
 
-    fun checkNicknameExist(nickname: String): Boolean {
-        return userRepository.existsByNickname(nickname)
+    fun getUserId(): String? {
+        val authentication =
+            SecurityContextHolder.getContext().authentication ?: throw TokenUnauthorizedException()
+        return authentication.name
     }
+
+    fun getUser(): User {
+        return userRepository.findByAccountId(getUserId()!!)!!
+    }
+
 
     fun getUserByAccountId(accountId: String): User {
         return userRepository.findByAccountId(accountId) ?: throw UserNotFoundException

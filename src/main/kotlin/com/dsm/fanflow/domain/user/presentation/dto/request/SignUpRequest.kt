@@ -9,7 +9,7 @@ data class SignUpRequest(
     val accountId: String,
 
     @field:NotBlank
-    @field:Size(min = 2, max = 12)
+    @field:Size(min = 2, max = 20)
     val nickname: String,
 
     @field:NotBlank

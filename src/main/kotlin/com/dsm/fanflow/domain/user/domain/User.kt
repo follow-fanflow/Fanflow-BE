@@ -11,25 +11,28 @@ import javax.persistence.Id
 import javax.persistence.OneToMany
 
 @Entity
-data class User(
-
-    @Column(nullable = false, length = 20, unique = true)
+class User(
+    @Column(name = "id", unique = true)
     @Id
     val accountId: String,
 
-    @Column(length = 12, nullable = false)
-    val nickname: String,
-
-    @Column(length = 60, nullable = false)
-    val password: String,
-
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     val role: Role = Role.USER,
 
     val profileImg: String? = null,
 
     @OneToMany(mappedBy = "user", cascade = [CascadeType.REMOVE], orphanRemoval = true)
-    val myLogs: MutableList<Log> = mutableListOf()
+    val myLogs: MutableList<Log> = mutableListOf(),
 
-)
+    var nickname: String,
+    var password: String
+) {
+    fun passwordChange(newPassword: String) {
+        this.password = newPassword
+    }
+
+    fun nicknameChange(newNickname: String) {
+        this.nickname = newNickname
+    }
+}
+
