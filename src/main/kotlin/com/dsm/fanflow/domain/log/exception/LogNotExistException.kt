@@ -5,6 +5,4 @@ import com.dsm.fanflow.global.error.exception.FanflowException
 
 object LogNotExistException: FanflowException(
     ErrorCode.LOG_NOT_EXIST
-) {
-    val EXCEPTION = LogNotExistException
-}
+)

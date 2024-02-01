@@ -1,16 +1,13 @@
 package com.dsm.fanflow.domain.log.presentation
 
-import com.dsm.fanflow.domain.log.presentation.dto.request.LogIdRequest
 import com.dsm.fanflow.domain.log.presentation.dto.request.LogRequest
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogListResponse
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogResponse
-import com.dsm.fanflow.domain.log.presentation.dto.response.ReturnIdResponse
 import com.dsm.fanflow.domain.log.service.LogDeleteService
 import com.dsm.fanflow.domain.log.service.LogDetailService
 import com.dsm.fanflow.domain.log.service.LogListService
 import com.dsm.fanflow.domain.log.service.LogModifyService
 import com.dsm.fanflow.domain.log.service.LogService
-import java.util.UUID
 import javax.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.DeleteMapping

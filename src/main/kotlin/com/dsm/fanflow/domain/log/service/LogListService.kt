@@ -1,13 +1,9 @@
 package com.dsm.fanflow.domain.log.service
 
-import com.dsm.fanflow.domain.log.domain.Log
 import com.dsm.fanflow.domain.log.domain.group.Group
-import com.dsm.fanflow.domain.log.domain.repository.LogRepository
 import com.dsm.fanflow.domain.log.facade.LogFacade
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogListResponse
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogResponse
-import com.dsm.fanflow.domain.user.facade.UserFacade
-import kotlin.math.log
 import org.springframework.stereotype.Service
 
 @Service

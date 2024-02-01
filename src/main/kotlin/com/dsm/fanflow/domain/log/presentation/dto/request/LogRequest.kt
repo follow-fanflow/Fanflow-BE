@@ -2,7 +2,6 @@ package com.dsm.fanflow.domain.log.presentation.dto.request
 
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
-import org.springframework.boot.autoconfigure.web.WebProperties.Resources.Chain.Strategy.Content
 
 data class LogRequest(
     @field:NotBlank

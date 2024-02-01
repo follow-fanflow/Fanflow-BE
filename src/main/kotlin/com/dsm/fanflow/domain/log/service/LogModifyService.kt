@@ -1,6 +1,5 @@
 package com.dsm.fanflow.domain.log.service
 
-import com.dsm.fanflow.domain.log.domain.repository.LogRepository
 import com.dsm.fanflow.domain.log.exception.CantDeleteException
 import com.dsm.fanflow.domain.log.facade.LogFacade
 import com.dsm.fanflow.domain.log.presentation.dto.request.LogRequest
