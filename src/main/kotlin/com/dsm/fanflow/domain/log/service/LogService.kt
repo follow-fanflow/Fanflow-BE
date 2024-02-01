@@ -23,7 +23,7 @@ class LogService(
 ) {
 
     @Transactional
-    fun create(request: LogRequest){
+    fun execute(request: LogRequest){
         logRepository.save(
             Log(
                 id = 0,
