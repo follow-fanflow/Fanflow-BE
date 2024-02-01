@@ -22,7 +22,6 @@ class SignUpService(
 ) {
     @Transactional
     fun execute(request: SignUpRequest): TokenResponse{
-        print("------------------------------${request.accountId}---------------------")
         checkIdExist(request)
         val user: User = userRepository.save(
             User(
