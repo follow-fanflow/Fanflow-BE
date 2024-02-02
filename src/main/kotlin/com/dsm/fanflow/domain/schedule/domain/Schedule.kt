@@ -21,7 +21,6 @@ class Schedule(
     var group: Group,
     var member: String?,
     var place: String?,
+    var approve: Boolean = false,
 
-    ): BaseIdEntity() {
-        
-}
+    ): BaseIdEntity()
