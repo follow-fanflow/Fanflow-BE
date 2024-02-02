@@ -1,4 +1,4 @@
-package com.dsm.fanflow.global
+package com.dsm.fanflow.global.domain
 
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType

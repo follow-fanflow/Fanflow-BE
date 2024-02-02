@@ -1,10 +1,10 @@
 package com.dsm.fanflow.domain.log.service
 
 import com.dsm.fanflow.domain.log.domain.Log
-import com.dsm.fanflow.domain.log.domain.group.Group
 import com.dsm.fanflow.domain.log.facade.LogFacade
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogListResponse
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogResponse
+import com.dsm.fanflow.global.domain.enum.Group
 import org.springframework.stereotype.Service
 
 @Service
