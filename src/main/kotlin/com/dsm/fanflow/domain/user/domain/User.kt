@@ -1,7 +1,7 @@
 package com.dsm.fanflow.domain.user.domain
 
 import com.dsm.fanflow.domain.log.domain.Log
-import com.dsm.fanflow.domain.user.domain.role.Role
+import com.dsm.fanflow.global.domain.enum.Role
 import javax.persistence.CascadeType
 import javax.persistence.Column
 import javax.persistence.Entity

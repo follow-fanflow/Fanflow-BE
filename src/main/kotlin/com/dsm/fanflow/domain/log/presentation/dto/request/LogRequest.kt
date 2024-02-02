@@ -1,6 +1,6 @@
 package com.dsm.fanflow.domain.log.presentation.dto.request
 
-import com.dsm.fanflow.domain.log.domain.group.Group
+import com.dsm.fanflow.global.domain.enum.Group
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 

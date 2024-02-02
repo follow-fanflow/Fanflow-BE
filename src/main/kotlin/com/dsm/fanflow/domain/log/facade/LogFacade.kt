@@ -1,8 +1,8 @@
 package com.dsm.fanflow.domain.log.facade
 
 import com.dsm.fanflow.domain.log.domain.Log
-import com.dsm.fanflow.domain.log.domain.group.Group
 import com.dsm.fanflow.domain.log.domain.repository.LogRepository
+import com.dsm.fanflow.global.domain.enum.Group
 import org.springframework.stereotype.Component
 
 @Component
@@ -14,8 +14,8 @@ class LogFacade(
         return logRepository.findLogsByUser(userId)
     }
 
-    fun getLogsByGroup(group: Group): List<Log>? {
-        return logRepository.findLogsByGroup(group)
+    fun getLogsByGroupAndApprove(group: Group): List<Log>? {
+        return logRepository.findLogsByGroupAndAndApprove(group, true)
     }
 
     fun getLogById(id: Long): Log {
@@ -28,5 +28,9 @@ class LogFacade(
 
     fun getAllLogs(): List<Log>? {
         return logRepository.findAll()
+    }
+
+    fun getApprovedLogs(): List<Log>? {
+        return logRepository.findLogsByApprove(true)
     }
 }
