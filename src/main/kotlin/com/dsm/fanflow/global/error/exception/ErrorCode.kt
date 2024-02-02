@@ -11,7 +11,7 @@ enum class ErrorCode(
     ACCOUNT_ID_ALREADY_EXIST(409, "AccountId Already Exist"),
 
     //log
-    CANT_DELETE_LOG(402, "Cant Delete Log"),
+    CANT_DELETE_LOG(403, "Cant Delete Log"),
     LOG_NOT_EXIST(404, "Log Not Exist"),
 
     //server
