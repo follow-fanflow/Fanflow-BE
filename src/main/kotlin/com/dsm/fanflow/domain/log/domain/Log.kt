@@ -19,7 +19,7 @@ class Log(
     @Column(name = "log_group")
     @Enumerated(EnumType.STRING)
     var group: Group,
-    private var likeCount: Int = 0,
+    var likeCount: Int = 0,
     var image: String? = null,
 
     @ManyToOne
@@ -31,9 +31,13 @@ class Log(
         likeCount += 1
     }
 
-    fun modify(title: String, content: String, group: String) {
+    fun deleteLike() {
+        likeCount -=1
+    }
+
+    fun modify(title: String, content: String, group: Group) {
         this.title = title
         this.content = content
-        this.group = Group.valueOf(group)
+        this.group = group
     }
 }
