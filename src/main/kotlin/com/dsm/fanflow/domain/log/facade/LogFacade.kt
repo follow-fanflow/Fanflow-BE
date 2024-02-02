@@ -26,7 +26,7 @@ class LogFacade(
         return logRepository.existsLogById(id)
     }
 
-    fun getAllLos(): List<Log>? {
+    fun getAllLogs(): List<Log>? {
         return logRepository.findAll()
     }
 }

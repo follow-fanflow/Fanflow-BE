@@ -1,6 +1,7 @@
 package com.dsm.fanflow.domain.log.service
 
 import com.dsm.fanflow.domain.log.exception.CantDeleteException
+import com.dsm.fanflow.domain.log.exception.LogNotExistException
 import com.dsm.fanflow.domain.log.facade.LogFacade
 import com.dsm.fanflow.domain.log.presentation.dto.request.LogRequest
 import com.dsm.fanflow.domain.user.facade.UserFacade
@@ -15,6 +16,9 @@ class LogModifyService(
 
     @Transactional
     fun execute(id: Long, request: LogRequest){
+        if(!logFacade.existLog(id)) {
+            throw LogNotExistException.ERROR
+        }
         val log = logFacade.getLogById(id)
         val user = userFacade.getUser()
 

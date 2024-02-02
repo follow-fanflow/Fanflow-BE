@@ -3,6 +3,7 @@ package com.dsm.fanflow.domain.log.presentation
 import com.dsm.fanflow.domain.log.presentation.dto.request.LogRequest
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogListResponse
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogResponse
+import com.dsm.fanflow.domain.log.presentation.dto.response.ReturnIdResponse
 import com.dsm.fanflow.domain.log.service.LogDeleteService
 import com.dsm.fanflow.domain.log.service.LogDetailService
 import com.dsm.fanflow.domain.log.service.LogListService
@@ -33,14 +34,21 @@ class LogController(
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    fun createLog(@RequestBody @Valid request: LogRequest) {
-        logService.execute(request)
+    fun createLog(@RequestBody @Valid request: LogRequest): ReturnIdResponse {
+        return logService.execute(request)
     }
 
     @PostMapping("/like/{id}")
     fun addLike(@PathVariable @Valid id: Long) {
         logService.addLike(id)
     }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/like/{id}")
+    fun deleteLike(@PathVariable @Valid id: Long) {
+        logService.deleteLike(id)
+    }
+
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")

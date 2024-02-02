@@ -1,5 +1,6 @@
 package com.dsm.fanflow.domain.log.presentation.dto.request
 
+import com.dsm.fanflow.domain.log.domain.group.Group
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 
@@ -12,6 +13,5 @@ data class LogRequest(
     @field:Size(min = 2, max = 5000)
     val content: String,
 
-    @field:NotBlank
-    val group: String
+    val group: Group
 )

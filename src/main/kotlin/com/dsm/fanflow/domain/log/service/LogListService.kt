@@ -1,5 +1,6 @@
 package com.dsm.fanflow.domain.log.service
 
+import com.dsm.fanflow.domain.log.domain.Log
 import com.dsm.fanflow.domain.log.domain.group.Group
 import com.dsm.fanflow.domain.log.facade.LogFacade
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogListResponse
@@ -13,34 +14,26 @@ class LogListService(
 
     fun findLog(group: String): LogListResponse? {
         val logs = logFacade.getLogsByGroup(Group.valueOf(group))
-
-
-        val logListResponses = logs?.map { log ->
-            LogResponse(
-                id = log.id,
-                title = log.title,
-                content = log.content,
-                group = (log.group).toString(),
-                image = log.image ?: ""
-            )
-        }
-
+        val logListResponses = logs?.let { mapLogsToResponse(it) }
         return logListResponses?.let { LogListResponse(logList = it) }
     }
 
     fun findAllLogs(): LogListResponse? {
-        val logs = logFacade.getAllLos()
+        val logs = logFacade.getAllLogs()
+        val logListResponses = logs?.let { mapLogsToResponse(it) }
+        return logListResponses?.let { LogListResponse(logList = it) }
+    }
 
-        val logListResponses = logs?.map { log ->
+    fun mapLogsToResponse(logs: List<Log>): List<LogResponse> {
+        return logs.map { log ->
             LogResponse(
                 id = log.id,
                 title = log.title,
                 content = log.content,
-                group = (log.group).toString(),
+                group = log.group.toString(),
+                likeCount = log.likeCount,
                 image = log.image ?: ""
             )
         }
-
-        return logListResponses?.let { LogListResponse(logList = it) }
     }
 }
