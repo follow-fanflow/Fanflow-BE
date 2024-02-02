@@ -10,8 +10,7 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 class CreateService(
-    private val scheduleRepository: ScheduleRepository,
-    private val scheduleFacade: ScheduleFacade
+    private val scheduleRepository: ScheduleRepository
 ) {
 
     @Transactional
