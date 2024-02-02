@@ -2,7 +2,7 @@ package com.dsm.fanflow.domain.schedule.presentation
 
 import com.dsm.fanflow.domain.schedule.presentation.dto.request.ScheduleRequest
 import com.dsm.fanflow.domain.schedule.presentation.dto.response.ReturnIdResponse
-import com.dsm.fanflow.domain.schedule.service.CreateService
+import com.dsm.fanflow.domain.schedule.service.ScheduleService
 import com.dsm.fanflow.domain.schedule.service.DeleteService
 import javax.validation.Valid
 import org.springframework.http.HttpStatus
@@ -17,19 +17,24 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/schedule")
 @RestController
 class ScheduleController(
-    private val createService: CreateService,
+    private val scheduleService: ScheduleService,
     private val deleteService: DeleteService
 ) {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     fun create(@RequestBody @Valid request: ScheduleRequest): ReturnIdResponse {
-        return createService.execute(request)
+        return scheduleService.execute(request)
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     fun delete(@PathVariable @Valid id: Long) {
         deleteService.execute(id)
+    }
+
+    @PostMapping("/admin/{id}")
+    fun approve(@PathVariable @Valid id: Long) {
+        scheduleService.approve(id)
     }
 }
