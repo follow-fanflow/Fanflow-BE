@@ -5,5 +5,6 @@ data class LogResponse(
     val title: String,
     val content: String,
     val group: String,
+    val likeCount: Int,
     val image: String?
 )
