@@ -75,4 +75,9 @@ class LogController(
     fun logDetail(@PathVariable @Valid id: Long): LogResponse {
         return logDetailService.execute(id)
     }
+
+    @PostMapping("/admin/{id}")
+    fun approveLog(@PathVariable @Valid id: Long) {
+        logService.approveLog(id)
+    }
 }

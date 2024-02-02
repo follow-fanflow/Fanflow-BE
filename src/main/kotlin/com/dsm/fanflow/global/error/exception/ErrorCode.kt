@@ -13,6 +13,7 @@ enum class ErrorCode(
     //log
     CANT_DELETE_LOG(403, "Cant Delete Log"),
     LOG_NOT_EXIST(404, "Log Not Exist"),
+    ROLE_NOT_ADMIN(401,"Role Not Admin"),
 
     //server
     INTERNAL_SERVER_ERROR(500, "Internal Server Error")

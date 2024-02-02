@@ -13,13 +13,13 @@ class LogListService(
 ) {
 
     fun findLog(group: String): LogListResponse? {
-        val logs = logFacade.getLogsByGroup(Group.valueOf(group))
+        val logs = logFacade.getLogsByGroupAndApprove(Group.valueOf(group))
         val logListResponses = logs?.let { mapLogsToResponse(it) }
         return logListResponses?.let { LogListResponse(logList = it) }
     }
 
     fun findAllLogs(): LogListResponse? {
-        val logs = logFacade.getAllLogs()
+        val logs = logFacade.getApprovedLogs()
         val logListResponses = logs?.let { mapLogsToResponse(it) }
         return logListResponses?.let { LogListResponse(logList = it) }
     }

@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository
 @Repository
 interface LogRepository: JpaRepository<Log, Long> {
     fun findLogsByUser(userId: String): List<Log>?
-    fun findLogsByGroup(group: Group): List<Log>?
+    fun findLogsByGroupAndAndApprove(group: Group, approve: Boolean ): List<Log>?
     fun findLogById(id: Long): Log
     fun existsLogById(id: Long): Boolean
+    fun findLogsByApprove(approve: Boolean): List<Log>?
 }
