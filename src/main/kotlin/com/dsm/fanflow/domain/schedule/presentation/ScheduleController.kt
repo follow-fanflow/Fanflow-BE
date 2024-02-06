@@ -1,5 +1,6 @@
 package com.dsm.fanflow.domain.schedule.presentation
 
+import com.dsm.fanflow.domain.log.presentation.dto.response.LogListResponse
 import com.dsm.fanflow.domain.schedule.presentation.dto.request.ScheduleRequest
 import com.dsm.fanflow.domain.schedule.presentation.dto.response.ReturnIdResponse
 import com.dsm.fanflow.domain.schedule.presentation.dto.response.ScheduleListResponse
@@ -41,6 +42,11 @@ class ScheduleController(
     @PostMapping("/admin/{id}")
     fun approve(@PathVariable @Valid id: Long) {
         scheduleService.approve(id)
+    }
+
+    @GetMapping("/admin")
+    fun getApproveNeedLog(): ScheduleListResponse? {
+        return listService.findApproveNeedLog()
     }
 
     @GetMapping
