@@ -26,11 +26,8 @@ class LogFacade(
         return logRepository.existsLogById(id)
     }
 
-    fun getAllLogs(): List<Log>? {
-        return logRepository.findAll()
-    }
-
     fun getApprovedLogs(): List<Log>? {
         return logRepository.findLogsByApprove(true)
     }
+
 }
