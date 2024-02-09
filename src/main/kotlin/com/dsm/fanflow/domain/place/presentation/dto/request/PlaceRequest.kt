@@ -1,6 +1,5 @@
 package com.dsm.fanflow.domain.place.presentation.dto.request
 
-import com.dsm.fanflow.global.domain.enum.Member
 import javax.validation.constraints.NotBlank
 
 data class PlaceRequest(
