@@ -18,8 +18,20 @@ class PlaceFacade(
         return placeRepository.findPlacesByPeople(people)
     }
 
+    fun getPlaceById(id: Long): Place {
+        return placeRepository.findPlaceById(id)
+    }
+
+    fun existPlace(id: Long): Boolean {
+        return placeRepository.existsPlaceById(id)
+    }
+
     fun save(place: Place): Long {
         placeRepository.save(place)
         return place.id
+    }
+
+    fun delete(place: Place) {
+        placeRepository.delete(place)
     }
 }
