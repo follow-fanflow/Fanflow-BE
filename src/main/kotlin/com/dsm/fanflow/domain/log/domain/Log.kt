@@ -20,7 +20,7 @@ class Log(
     @Enumerated(EnumType.STRING)
     val group: Group,
     var likeCount: Int = 0,
-    val approve: Boolean = false,
+    var approve: Boolean = false,
     val image: String? = null,
 
     @ManyToOne

@@ -1,6 +1,5 @@
 package com.dsm.fanflow.domain.schedule.domain.repository
 
-import com.dsm.fanflow.domain.log.domain.Log
 import com.dsm.fanflow.domain.schedule.domain.Schedule
 import com.dsm.fanflow.global.domain.enum.Group
 import org.springframework.data.jpa.repository.JpaRepository
