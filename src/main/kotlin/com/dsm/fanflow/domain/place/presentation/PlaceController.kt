@@ -42,4 +42,9 @@ class PlaceController(
     fun findPlaceByMember(@RequestParam(value = "member") member: Member): PlaceListResponse? {
         return placeListService.execute(member)
     }
+
+    @PostMapping("/admin/{id}")
+    fun approve(@PathVariable @Valid id: Long) {
+        placeService.approve(id)
+    }
 }
