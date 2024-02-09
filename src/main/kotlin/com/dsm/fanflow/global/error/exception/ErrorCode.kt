@@ -15,6 +15,9 @@ enum class ErrorCode(
     LOG_NOT_EXIST(404, "Log Not Exist"),
     ROLE_NOT_ADMIN(401,"Role Not Admin"),
 
+    //place
+    PLACE_NOT_FOUND(404, "Place Not Found"),
+
     //server
     INTERNAL_SERVER_ERROR(500, "Internal Server Error")
 }
