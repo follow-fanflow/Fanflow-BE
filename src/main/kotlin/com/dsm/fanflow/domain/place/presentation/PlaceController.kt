@@ -43,6 +43,11 @@ class PlaceController(
         return placeListService.execute(member)
     }
 
+    @GetMapping("/admin")
+    fun findPlaceByApproveNeed(): PlaceListResponse? {
+        return placeListService.needApproveMap()
+    }
+
     @PostMapping("/admin/{id}")
     fun approve(@PathVariable @Valid id: Long) {
         placeService.approve(id)
