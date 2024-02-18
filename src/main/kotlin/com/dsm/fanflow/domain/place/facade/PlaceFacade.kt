@@ -15,7 +15,7 @@ class PlaceFacade(
     }
 
     fun getPlaceByApproveNeed(): List<Place>? {
-        return placeRepository.findPlacesByApprove(true)
+        return placeRepository.findPlacesByApprove(false)
     }
 
     fun getPlacesByPeople(people: Member): List<Place>? {
