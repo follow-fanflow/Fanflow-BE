@@ -18,10 +18,6 @@ class PlaceFacade(
         return placeRepository.findPlacesByApprove(false)
     }
 
-    fun getPlacesByPeople(people: Member): List<Place>? {
-        return placeRepository.findPlacesByPeople(people)
-    }
-
     fun getPlaceById(id: Long): Place {
         return placeRepository.findPlaceById(id)
     }
