@@ -4,13 +4,17 @@ import com.dsm.fanflow.domain.user.presentation.dto.request.NicknameRequest
 import com.dsm.fanflow.domain.user.presentation.dto.request.PasswordRequest
 import com.dsm.fanflow.domain.user.presentation.dto.request.SignInRequest
 import com.dsm.fanflow.domain.user.presentation.dto.request.SignUpRequest
+import com.dsm.fanflow.domain.user.presentation.dto.response.UserDetailResponse
 import com.dsm.fanflow.domain.user.service.ModifyService
 import com.dsm.fanflow.domain.user.service.SignInService
 import com.dsm.fanflow.domain.user.service.SignUpService
+import com.dsm.fanflow.domain.user.service.UserDetailService
 import com.dsm.fanflow.global.security.dto.response.TokenResponse
 import javax.validation.Valid
 import org.jetbrains.annotations.NotNull
 import org.springframework.http.HttpStatus
+import org.springframework.security.crypto.keygen.StringKeyGenerator
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PatchMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -24,7 +28,8 @@ import org.springframework.web.bind.annotation.RestController
 class UserController(
     private val signUpService: SignUpService,
     private val signInService: SignInService,
-    private val modifyService: ModifyService
+    private val modifyService: ModifyService,
+    private val userDetailService: UserDetailService
 ) {
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -48,5 +53,10 @@ class UserController(
     @PatchMapping("/nickname/{id}")
     fun nickname(@PathVariable @NotNull id: String, @RequestBody @Valid request: NicknameRequest){
         modifyService.nickname(id, request)
+    }
+
+    @GetMapping("/myPage")
+    fun myPage(): UserDetailResponse{
+        return userDetailService.myPage()
     }
 }

@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository
 interface ScheduleRepository: JpaRepository<Schedule, Long> {
     fun findScheduleById(id: Long): Schedule
     fun findScheduleByGroupAndApprove(group: Group, approve: Boolean): List<Schedule>?
+    fun findScheduleByApprove(approve: Boolean): List<Schedule>?
+
 }

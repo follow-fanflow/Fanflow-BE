@@ -1,5 +1,6 @@
 package com.dsm.fanflow.domain.schedule.facade
 
+import com.dsm.fanflow.domain.log.domain.Log
 import com.dsm.fanflow.domain.schedule.domain.Schedule
 import com.dsm.fanflow.domain.schedule.domain.repository.ScheduleRepository
 import com.dsm.fanflow.global.domain.enum.Group
@@ -16,5 +17,9 @@ class ScheduleFacade(
 
     fun getScheduleByGroupAndApprove(group: Group): List<Schedule>? {
         return scheduleRepository.findScheduleByGroupAndApprove(group, true)
+    }
+
+    fun getApproveNeedLogs(): List<Schedule>? {
+        return scheduleRepository.findScheduleByApprove(false)
     }
 }

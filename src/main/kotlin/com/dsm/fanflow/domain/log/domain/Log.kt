@@ -14,14 +14,14 @@ import javax.persistence.ManyToOne
 class Log(
     override val id: Long,
 
-    var title: String,
-    var content: String,
+    val title: String,
+    val content: String,
     @Column(name = "log_group")
     @Enumerated(EnumType.STRING)
-    var group: Group,
+    val group: Group,
     var likeCount: Int = 0,
     var approve: Boolean = false,
-    var image: String? = null,
+    val image: String? = null,
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -34,11 +34,5 @@ class Log(
 
     fun deleteLike() {
         likeCount -=1
-    }
-
-    fun modify(title: String, content: String, group: Group) {
-        this.title = title
-        this.content = content
-        this.group = group
     }
 }
