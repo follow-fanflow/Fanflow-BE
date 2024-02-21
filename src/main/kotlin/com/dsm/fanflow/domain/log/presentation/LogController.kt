@@ -1,6 +1,7 @@
 package com.dsm.fanflow.domain.log.presentation
 
 import com.dsm.fanflow.domain.log.presentation.dto.request.LogRequest
+import com.dsm.fanflow.domain.log.presentation.dto.response.LogDetailResponse
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogListResponse
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogResponse
 import com.dsm.fanflow.domain.log.presentation.dto.response.ReturnIdResponse
@@ -55,7 +56,7 @@ class LogController(
     }
 
     @GetMapping("/{id}")
-    fun logDetail(@PathVariable @Valid id: Long): LogResponse {
+    fun logDetail(@PathVariable @Valid id: Long): LogDetailResponse {
         return logDetailService.execute(id)
     }
 
