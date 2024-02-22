@@ -34,7 +34,7 @@ class ScheduleController(
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admin/{id}")
     fun delete(@PathVariable @Valid id: Long) {
         deleteService.execute(id)
     }

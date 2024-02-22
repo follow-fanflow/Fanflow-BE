@@ -33,7 +33,7 @@ class PlaceController(
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admin/{id}")
     fun deletePlace(@PathVariable @Valid id: Long) {
         placeDeleteService.delete(id)
     }
