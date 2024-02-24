@@ -45,8 +45,8 @@ class ScheduleController(
     }
 
     @GetMapping("/admin")
-    fun getApproveNeedLog(): ScheduleListResponse? {
-        return listService.findApproveNeedLog()
+    fun getApproveNeedSchedule(): ScheduleListResponse? {
+        return listService.findApproveNeedSchedule()
     }
 
     @GetMapping

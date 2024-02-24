@@ -19,7 +19,7 @@ class ScheduleFacade(
         return scheduleRepository.findScheduleByGroupAndApprove(group, true)
     }
 
-    fun getApproveNeedLogs(): List<Schedule>? {
+    fun getApproveNeedSchedules(): List<Schedule>? {
         return scheduleRepository.findScheduleByApprove(false)
     }
 }

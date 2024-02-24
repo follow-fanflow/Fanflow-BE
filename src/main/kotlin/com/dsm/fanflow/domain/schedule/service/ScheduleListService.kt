@@ -19,8 +19,8 @@ class ScheduleListService(
         return scheduleResponseList?.let { ScheduleListResponse(it) }
     }
 
-    fun findApproveNeedLog(): ScheduleListResponse? {
-        val schedules = scheduleFacade.getApproveNeedLogs()
+    fun findApproveNeedSchedule(): ScheduleListResponse? {
+        val schedules = scheduleFacade.getApproveNeedSchedules()
         val scheduleResponseList = schedules?.let { mapSchedulesToResponse(it) }
         return scheduleResponseList?.let { ScheduleListResponse(scheduleList = it) }
     }
