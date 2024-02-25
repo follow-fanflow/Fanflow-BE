@@ -7,6 +7,7 @@ enum class ErrorCode(
     //user
     TOKEN_UNAUTHORIZED(401, "Token Unauthorized"),
     PASSWORD_MISMATCH(403, "Password Mismatch"),
+    USER_MISMATCH(403, "User Mismatch"),
     USER_NOT_FOUND(404, "User Not Found"),
     ACCOUNT_ID_ALREADY_EXIST(409, "AccountId Already Exist"),
 
@@ -17,6 +18,9 @@ enum class ErrorCode(
 
     //place
     PLACE_NOT_FOUND(404, "Place Not Found"),
+
+    //file
+    FILE_BAD_REQUEST(400, "File Bad Request"),
 
     //server
     INTERNAL_SERVER_ERROR(500, "Internal Server Error")
