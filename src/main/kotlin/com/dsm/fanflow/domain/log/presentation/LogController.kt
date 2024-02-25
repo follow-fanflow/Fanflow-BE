@@ -40,7 +40,7 @@ class LogController(
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/{id}")
+    @PostMapping("pic/{id}")
     fun upload(@PathVariable id: Long, @RequestPart(value = "image") file: MultipartFile): String {
         return logFileService.execute(id, file)
     }
