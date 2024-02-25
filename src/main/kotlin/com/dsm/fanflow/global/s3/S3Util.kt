@@ -20,10 +20,12 @@ class S3Util(
     private val bucket: String
 ) {
 
-    fun upload(file: MultipartFile): String {
+    fun upload(file: MultipartFile, folderName: String): String {
         verificationFile(file)
-        val fileName = UUID.randomUUID().toString() + getFileExtension(file.originalFilename ?: "")
+
+        val fileName = "${folderName}/${UUID.randomUUID().toString()}.${getFileExtension(file.originalFilename ?: "")}"
         inputS3(file, fileName)
+
         return getResourceUrl(fileName)
     }
 
