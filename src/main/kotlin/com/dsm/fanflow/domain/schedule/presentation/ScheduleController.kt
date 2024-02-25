@@ -34,7 +34,7 @@ class ScheduleController(
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admin/{id}")
     fun delete(@PathVariable @Valid id: Long) {
         deleteService.execute(id)
     }
@@ -45,8 +45,8 @@ class ScheduleController(
     }
 
     @GetMapping("/admin")
-    fun getApproveNeedLog(): ScheduleListResponse? {
-        return listService.findApproveNeedLog()
+    fun getApproveNeedSchedule(): ScheduleListResponse? {
+        return listService.findApproveNeedSchedule()
     }
 
     @GetMapping

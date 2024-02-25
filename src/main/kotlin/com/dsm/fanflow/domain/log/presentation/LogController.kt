@@ -1,12 +1,15 @@
 package com.dsm.fanflow.domain.log.presentation
 
 import com.dsm.fanflow.domain.log.presentation.dto.request.LogRequest
+import com.dsm.fanflow.domain.log.presentation.dto.response.LogDetailResponse
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogListResponse
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogResponse
 import com.dsm.fanflow.domain.log.presentation.dto.response.ReturnIdResponse
 import com.dsm.fanflow.domain.log.service.LogDetailService
+import com.dsm.fanflow.domain.log.service.LogFileService
 import com.dsm.fanflow.domain.log.service.LogListService
 import com.dsm.fanflow.domain.log.service.LogService
+import java.io.File
 import javax.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -16,21 +19,30 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RequestPart
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.multipart.MultipartFile
 
 @RequestMapping("/log")
 @RestController
 class LogController(
     private val logService: LogService,
     private val logListService: LogListService,
-    private val logDetailService: LogDetailService
+    private val logDetailService: LogDetailService,
+    private val logFileService: LogFileService
 ) {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     fun createLog(@RequestBody @Valid request: LogRequest): ReturnIdResponse {
         return logService.execute(request)
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/{id}")
+    fun upload(@PathVariable id: Long, @RequestPart(value = "image") file: MultipartFile): String {
+        return logFileService.execute(id, file)
     }
 
     @PostMapping("/like/{id}")
@@ -55,7 +67,7 @@ class LogController(
     }
 
     @GetMapping("/{id}")
-    fun logDetail(@PathVariable @Valid id: Long): LogResponse {
+    fun logDetail(@PathVariable @Valid id: Long): LogDetailResponse {
         return logDetailService.execute(id)
     }
 
@@ -63,6 +75,5 @@ class LogController(
     fun approveLog(@PathVariable @Valid id: Long) {
         logService.approveLog(id)
     }
-
 
 }

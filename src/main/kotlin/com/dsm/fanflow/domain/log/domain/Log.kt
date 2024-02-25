@@ -21,7 +21,7 @@ class Log(
     val group: Group,
     var likeCount: Int = 0,
     var approve: Boolean = false,
-    val image: String? = null,
+    var image: String? = null,
 
     @ManyToOne
     @JoinColumn(name = "user_id")

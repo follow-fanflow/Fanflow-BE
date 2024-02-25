@@ -1,5 +1,6 @@
 package com.dsm.fanflow.global.config
 
+import com.dsm.fanflow.global.domain.enum.Role
 import com.dsm.fanflow.global.security.jwt.JwtTokenProvider
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.context.annotation.Bean
@@ -33,12 +34,12 @@ class SecurityConfig(
             .and()
             .authorizeHttpRequests()
 
-
-            //.antMatchers("/**").permitAll()
-            .antMatchers(HttpMethod.POST, "/user/login").permitAll()
-            .antMatchers(HttpMethod.POST, "/user/signup").permitAll()
-            //.anyRequest().authenticated()
-            .anyRequest().permitAll()
+            .antMatchers("/user/signup").permitAll()
+            .antMatchers("/user/login").permitAll()
+            .antMatchers(HttpMethod.GET).permitAll()
+            .antMatchers("/schedule/admin/**").hasRole(Role.ADMIN.toString())
+            .antMatchers("/place/admin/**").hasRole(Role.ADMIN.toString())
+            .anyRequest().authenticated()
 
             .and().apply(FilterConfig(objectMapper, tokenProvider))
             .and().build()
