@@ -11,6 +11,9 @@ class LogFacade(
     private val logRepository: LogRepository
 ) {
 
+    fun save(log: Log): Log {
+        return logRepository.save(log)
+    }
     fun getLogsByGroupAndApprove(group: Group): List<Log>? {
         return logRepository.findLogsByGroupAndAndApprove(group, true)
     }
