@@ -4,7 +4,6 @@ import com.dsm.fanflow.domain.log.domain.Log
 import com.dsm.fanflow.domain.log.facade.LogFacade
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogListResponse
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogResponse
-import com.dsm.fanflow.domain.user.exception.UserNotFoundException
 import com.dsm.fanflow.domain.user.facade.UserFacade
 import com.dsm.fanflow.global.domain.enum.Group
 import org.springframework.stereotype.Service

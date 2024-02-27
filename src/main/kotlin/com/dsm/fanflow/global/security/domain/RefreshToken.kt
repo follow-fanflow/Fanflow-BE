@@ -1,6 +1,5 @@
 package com.dsm.fanflow.global.security.domain
 
-import javax.validation.constraints.NotBlank
 import lombok.Builder
 import lombok.Getter
 import org.springframework.data.annotation.Id

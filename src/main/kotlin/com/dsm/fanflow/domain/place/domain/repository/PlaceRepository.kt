@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository
 interface PlaceRepository : JpaRepository<Place, Long> {
     fun findPlacesByPeopleAndApprove(people: Member, approve: Boolean): List<Place>?
     fun findPlacesByApprove(approve: Boolean): List<Place>?
-    fun findPlacesByPeople(people: Member): List<Place>?
     fun findPlaceById(id: Long): Place
     fun existsPlaceById(id: Long): Boolean
 }

@@ -3,7 +3,6 @@ package com.dsm.fanflow.domain.log.service
 import com.dsm.fanflow.domain.log.exception.LogNotExistException
 import com.dsm.fanflow.domain.log.facade.LogFacade
 import com.dsm.fanflow.domain.log.presentation.dto.response.LogDetailResponse
-import com.dsm.fanflow.domain.log.presentation.dto.response.LogResponse
 import org.springframework.stereotype.Service
 
 @Service

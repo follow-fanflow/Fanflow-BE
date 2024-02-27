@@ -13,7 +13,6 @@ import com.dsm.fanflow.global.security.dto.response.TokenResponse
 import javax.validation.Valid
 import org.jetbrains.annotations.NotNull
 import org.springframework.http.HttpStatus
-import org.springframework.security.crypto.keygen.StringKeyGenerator
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PatchMapping
 import org.springframework.web.bind.annotation.PathVariable

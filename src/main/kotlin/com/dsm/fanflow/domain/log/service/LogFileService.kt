@@ -1,6 +1,5 @@
 package com.dsm.fanflow.domain.log.service
 
-import com.dsm.fanflow.domain.log.domain.Log
 import com.dsm.fanflow.domain.log.exception.LogNotExistException
 import com.dsm.fanflow.domain.log.facade.LogFacade
 import com.dsm.fanflow.domain.user.exception.UserMismatchException
