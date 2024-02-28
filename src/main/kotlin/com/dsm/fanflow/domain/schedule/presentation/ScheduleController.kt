@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController
 class ScheduleController(
     private val scheduleService: ScheduleService,
     private val deleteService: DeleteService,
-    private val listService: ScheduleListService
+    private val scheduleListService: ScheduleListService
 ) {
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -45,11 +45,11 @@ class ScheduleController(
 
     @GetMapping("/admin")
     fun getApproveNeedSchedule(): ScheduleListResponse? {
-        return listService.findApproveNeedSchedule()
+        return scheduleListService.findApproveNeedSchedule()
     }
 
     @GetMapping
     fun groupSchedule(@RequestParam(value = "group") group: String): ScheduleListResponse? {
-        return listService.execute(group)
+        return scheduleListService.execute(group)
     }
 }
