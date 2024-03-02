@@ -10,7 +10,7 @@ class ListService {
         return Member.values().map { it }.toList()
     }
 
-    fun getAllGroup(): List<Group> {
+    fun getAllGroups(): List<Group> {
         return Group.values().map { it }.toList()
     }
 }

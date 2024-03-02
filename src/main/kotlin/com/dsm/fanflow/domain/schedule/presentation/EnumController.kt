@@ -20,6 +20,6 @@ class EnumController(
 
     @GetMapping("/group")
     fun group(): List<Group> {
-        return listService.getAllGroup()
+        return listService.getAllGroups()
     }
 }
