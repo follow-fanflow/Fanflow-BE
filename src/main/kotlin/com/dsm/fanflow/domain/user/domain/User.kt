@@ -1,14 +1,11 @@
 package com.dsm.fanflow.domain.user.domain
 
-import com.dsm.fanflow.domain.log.domain.Log
 import com.dsm.fanflow.global.domain.enum.Role
-import javax.persistence.CascadeType
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.EnumType
 import javax.persistence.Enumerated
 import javax.persistence.Id
-import javax.persistence.OneToMany
 
 @Entity
 class User(
@@ -20,9 +17,6 @@ class User(
     val role: Role = Role.USER,
 
     val profileImg: String? = null,
-
-    @OneToMany(mappedBy = "user", cascade = [CascadeType.REMOVE], orphanRemoval = true)
-    val myLogs: MutableList<Log> = mutableListOf(),
 
     var nickname: String,
     var password: String
