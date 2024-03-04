@@ -58,7 +58,8 @@ dependencies {
 	compileOnly ("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
 
-
+	implementation("com.amazonaws:aws-java-sdk-s3")
+	implementation("io.awspring.cloud:spring-cloud-starter-aws:2.3.1")
 
 }
 
@@ -72,3 +73,5 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+
