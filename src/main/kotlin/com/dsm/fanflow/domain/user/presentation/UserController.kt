@@ -1,4 +1,4 @@
-package com.dsm.fanflow.domain.user.presentation.dto
+package com.dsm.fanflow.domain.user.presentation
 
 import com.dsm.fanflow.domain.user.presentation.dto.request.NicknameRequest
 import com.dsm.fanflow.domain.user.presentation.dto.request.PasswordRequest

@@ -1,4 +1,4 @@
-package com.dsm.fanflow.domain.schedule.service
+package com.dsm.fanflow.domain.user.service
 
 import com.dsm.fanflow.global.domain.enum.Group
 import com.dsm.fanflow.global.domain.enum.Member
