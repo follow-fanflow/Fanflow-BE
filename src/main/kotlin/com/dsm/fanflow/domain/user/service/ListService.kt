@@ -6,11 +6,11 @@ import org.springframework.stereotype.Service
 
 @Service
 class ListService {
-    fun getAllMembers(): List<Member> {
-        return Member.values().map { it }.toList()
+    fun getAllMembers(): List<String> {
+        return Member.values().map { it.korean }.toList()
     }
 
-    fun getAllGroups(): List<Group> {
-        return Group.values().map { it }.toList()
+    fun getAllGroups(): List<String> {
+        return Group.values().map { it.name }.toList()
     }
 }
