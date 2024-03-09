@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController
 class EnumController(
     private val listService: ListService
 ) {
-
     @GetMapping("/member")
     fun member(): List<String > {
         return listService.getAllMembers()

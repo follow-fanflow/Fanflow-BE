@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component
 class UserFacade(
     private val userRepository: UserRepository
 ) {
-
     fun checkAccountIdExist(accountId: String): Boolean {
         return userRepository.existsByAccountId(accountId)
     }

@@ -25,7 +25,6 @@ class ScheduleController(
     private val deleteService: DeleteService,
     private val scheduleListService: ScheduleListService
 ) {
-
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     fun create(@RequestBody @Valid request: ScheduleRequest): ReturnIdResponse {

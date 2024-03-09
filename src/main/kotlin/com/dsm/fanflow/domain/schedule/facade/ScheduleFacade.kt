@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component
 class ScheduleFacade(
     private val scheduleRepository: ScheduleRepository
 ) {
-
     fun getScheduleById(id: Long): Schedule {
         return scheduleRepository.findScheduleById(id)
     }

@@ -16,7 +16,6 @@ class PlaceService(
     private val placeFacade: PlaceFacade,
     private val userFacade: UserFacade
 ) {
-
     @Transactional
     fun save(request: PlaceRequest): Long {
         return placeFacade.save(

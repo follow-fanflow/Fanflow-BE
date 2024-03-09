@@ -19,7 +19,6 @@ class S3Util(
     @Value("\${cloud.aws.s3.bucket}")
     private val bucket: String
 ) {
-
     fun upload(file: MultipartFile, folderName: String): String {
         verificationFile(file)
 

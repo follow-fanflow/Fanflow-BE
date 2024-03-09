@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service
 class PlaceListService(
     private val placeFacade: PlaceFacade
 ) {
-
     fun execute(member: Member): PlaceListResponse? {
         val places = placeFacade.getPlacesByPeopleAndApprove(member)
         val placeResponseList = places?.map { place ->
@@ -41,5 +40,4 @@ class PlaceListService(
 
         return placeResponseList?.let { PlaceListResponse(it) }
     }
-
 }

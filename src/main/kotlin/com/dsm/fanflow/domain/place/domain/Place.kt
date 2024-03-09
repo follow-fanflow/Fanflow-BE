@@ -23,7 +23,5 @@ class Place (
 
     val placeY: Double,
 
-    var approve: Boolean = false,
-
-    ): BaseIdEntity() {
-}
+    var approve: Boolean = false
+): BaseIdEntity()

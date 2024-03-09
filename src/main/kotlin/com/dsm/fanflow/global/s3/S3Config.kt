@@ -19,7 +19,6 @@ class S3Config (
     @Value("\${cloud.aws.region.static}")
     private val region: String
 ){
-
     @Bean
     fun amazonS3Client(): AmazonS3Client {
         val basicAWSCredentials: BasicAWSCredentials = BasicAWSCredentials(accesskey,secretKey)

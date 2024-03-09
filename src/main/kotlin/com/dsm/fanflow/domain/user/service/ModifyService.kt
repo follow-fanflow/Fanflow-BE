@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional
 @Service
 class ModifyService(
     private val userFacade: UserFacade,
-    private val passwordEncoder: PasswordEncoder,
+    private val passwordEncoder: PasswordEncoder
 ) {
     @Transactional
     fun password(id: String, request: PasswordRequest){

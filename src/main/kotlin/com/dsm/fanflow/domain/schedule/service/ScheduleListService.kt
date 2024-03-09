@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service
 class ScheduleListService(
     private val scheduleFacade: ScheduleFacade
 ) {
-
     fun execute(group: String): ScheduleListResponse? {
         val schedules = scheduleFacade.getScheduleByGroupAndApprove(Group.valueOf(group))
         val scheduleResponseList = schedules?.let { mapSchedulesToResponse(it) }

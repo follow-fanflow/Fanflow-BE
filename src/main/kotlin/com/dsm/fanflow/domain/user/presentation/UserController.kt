@@ -30,7 +30,6 @@ class UserController(
     private val modifyService: ModifyService,
     private val userDetailService: UserDetailService
 ) {
-
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signup")
     fun signUp(@RequestBody @Valid request : SignUpRequest): TokenResponse{

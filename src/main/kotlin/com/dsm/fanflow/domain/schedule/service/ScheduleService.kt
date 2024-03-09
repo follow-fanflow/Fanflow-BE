@@ -17,7 +17,6 @@ class ScheduleService(
     private val scheduleFacade: ScheduleFacade,
     private val userFacade: UserFacade
 ) {
-
     @Transactional
     fun execute(request: ScheduleRequest): ReturnIdResponse {
         var schedule = scheduleRepository.save(

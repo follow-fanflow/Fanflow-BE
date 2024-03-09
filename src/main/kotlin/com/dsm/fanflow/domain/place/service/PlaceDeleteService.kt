@@ -13,7 +13,6 @@ class PlaceDeleteService(
     private val userFacade: UserFacade,
     private val placeFacade: PlaceFacade
 ) {
-
     @Transactional
     fun delete(id: Long) {
         val user = userFacade.getUser()

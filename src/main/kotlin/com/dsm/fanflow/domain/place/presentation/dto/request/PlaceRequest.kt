@@ -12,5 +12,5 @@ data class PlaceRequest(
 
     val placeX: Double,
 
-    val placeY: Double,
+    val placeY: Double
 )

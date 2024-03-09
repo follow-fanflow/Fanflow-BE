@@ -13,5 +13,5 @@ data class ScheduleRequest(
     val date: LocalDate,
     val group: Group,
     val member: String?,
-    val place: String?,
+    val place: String?
 )

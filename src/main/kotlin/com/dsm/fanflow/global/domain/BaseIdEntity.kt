@@ -7,7 +7,6 @@ import javax.persistence.MappedSuperclass
 
 @MappedSuperclass
 abstract class BaseIdEntity (
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     open val id: Long = 0

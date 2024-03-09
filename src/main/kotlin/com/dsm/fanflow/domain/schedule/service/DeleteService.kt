@@ -14,7 +14,6 @@ class DeleteService(
     private val scheduleFacade: ScheduleFacade,
     private val userFacade: UserFacade
 ) {
-
     @Transactional
     fun execute(id: Long) {
         var user = userFacade.getUser()
